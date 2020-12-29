@@ -1,0 +1,16 @@
+index
+    App
+
+
+navbar
+new clash form
+comments
+comment
+routes
+up vote
+down vote
+profile
+login/logout
+sign up
+homepage
+character card

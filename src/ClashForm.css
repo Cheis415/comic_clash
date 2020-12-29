@@ -1,0 +1,29 @@
+.formContainer {
+    display: flex;
+   
+    
+}
+
+.clashForm {
+    display: flex;
+    flex-direction: column;
+    margin-left: auto;
+    margin-right: auto;
+    justify-content: space-between;
+}
+
+.clashForm label {
+    padding: 5px;
+}
+
+.clashForm textarea {
+    margin-left: auto;
+    margin-right: auto; 
+    width: 100%; 
+}
+
+.btn {
+    width: 20rem;
+    margin-left: auto;
+    margin-right: auto; 
+}
