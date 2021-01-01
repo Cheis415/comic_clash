@@ -1,0 +1,75 @@
+.formContainer {
+    display: flex;
+   
+    
+}
+
+.clashForm {
+    display: flex;
+    flex-direction: column;
+    margin-left: auto;
+    margin-right: auto;
+    justify-content: space-between;
+}
+
+.clashForm label {
+    padding: 5px;
+}
+
+.clashForm textarea {
+    margin-left: auto;
+    margin-right: auto; 
+    width: 100%; 
+}
+
+.btn {
+    width: 20rem;
+    margin-left: auto;
+    margin-right: auto; 
+}
+
+.vs {
+  font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+  background-color: linear-gradient(90deg, rgb(255, 160, 18) 0%, rgb(255, 211, 169) 100%);
+  background: #f0c14b;
+  /* height: 120px;
+  width: 120px; */
+  /* display: inline-flex; */
+  font-size: 20px;
+  border: 1px solid;
+  border-radius: 3px;
+  border-color: #a88734 #9c7e31 #846a29;
+  background: linear-gradient(90deg, rgb(255, 73, 18) 0%, rgb(255, 211, 169) 100%);
+  color: #111;
+  font-size: 100px;
+  text-align: center;
+  align-content: center;
+}
+
+.player1 {
+  float: left;
+}
+
+.player1 > h3 {
+  font-family: monospace;
+  font-size: 30px;
+  text-align: center;
+}
+
+.player2 {
+  float: right;
+}
+
+.player2 > h3 {
+  font-family: monospace;
+  font-size: 30px;
+  text-align: center;
+}
+
+.battle > p {
+  position: relative;
+  margin-top: 400px;
+  display: block;
+  text-align: center;
+  float: inherit;
+}
