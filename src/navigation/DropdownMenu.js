@@ -54,43 +54,6 @@ function DropdownMenu() {
         </DropdownItem>
         </div>
       </CSSTransition>
-
-      <CSSTransition
-        in={activeMenu === "settings"}
-        unmountOnExit
-        onEnter={calcHeight}
-        timeout={500}
-        classNames="menu-secondary"
-      >
-        <div className="menu">
-          <DropdownItem
-            leftIcon={<Javascript /> } 
-            rightIcon={<Rarrow />} 
-            goToMenu="main">
-            Javascript
-        </DropdownItem>
-          <DropdownItem
-            leftIcon={<ReactIcon />}>
-            React
-      </DropdownItem>
-      <DropdownItem
-            leftIcon={<ReactIcon />}>
-            React
-      </DropdownItem>
-      <DropdownItem
-            leftIcon={<ReactIcon />}>
-            React
-      </DropdownItem>
-      <DropdownItem
-            leftIcon={<ReactIcon />}>
-            React
-      </DropdownItem>
-          <DropdownItem
-            leftIcon={<ReduxIcon />}>
-            Redux
-        </DropdownItem>
-        </div>
-      </CSSTransition>
     </div>
   )
 }
