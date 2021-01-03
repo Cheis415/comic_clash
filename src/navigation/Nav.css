@@ -34,7 +34,7 @@ a {
 }
 .navbar {
     height: var(--nav-size);
-    background-color: var(--bg);
+    background: linear-gradient(90deg, rgb(255, 73, 18) 0%, rgb(250, 163, 82) 100%);
     padding: 0 1rem;
     border-bottom: var(--border);
     border-radius: 12px;
@@ -81,8 +81,8 @@ a {
   
   .icon-button svg {
     fill: var(--text-color);
-    width: 20px;
-    height: 20px;
+    width: 40px;
+    height: 40px;
   }
   
   .dropdown {

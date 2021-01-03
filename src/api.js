@@ -1,24 +1,27 @@
 import axios from "axios";
 
-const BASE_URL = process.env.REACT_APP_BASE_URL || "http://localhost:3001";
+// const BASE_URL = process.env.REACT_APP_BASE_URL || "http://localhost:3001";
 
+// https://superheroapi.com/api/
 
 class ComicApi {
 
   // the token for interactive with the API will be stored here.
-  static token;
+  token;
 
-  static async request(endpoint, data = {}, method = "get") {
+  request(endpoint, data = {}, method = "get") {
     console.debug("API Call:", endpoint, data, method);
 
-    const url = `${BASE_URL}/${endpoint}`;
-    const headers = { Authorization: `Bearer ${ComicApi.token}` };
+    const url = `/${endpoint}`;
+    // const headers = { Authorization: `Bearer ${ComicApi.token}` };
     const params = (method === "get")
-      ? data
+      ? { format: 'json', ...data }
       : {};
 
     try {
-      return (await axios({ url, method, data, params, headers })).data;
+      console.log("PARAMS--->", params)
+      console.log("URL-->", url)
+     return axios.get(url, { params }).then(resp => { console.log(resp); return resp });
     } catch (err) {
       console.error("API Error:", err.response);
       let message = err.response.data.error.message;
@@ -26,9 +29,10 @@ class ComicApi {
     }
   }
 
-  static async getCharacter(name) {
-    let res = await this.request(`api/${name}`);
-    return res.company;
+  async getCharacter(name) {
+    let res = await this.request("api", { name });
+    console.log(res)
+    return res;
   }
 }
 

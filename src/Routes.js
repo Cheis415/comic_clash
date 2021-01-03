@@ -17,6 +17,8 @@ function Routes() {
       <Route path="/clash_page" exact>
         <ClashPage />
       </Route>
+      <Route path="/api" exact>
+      </Route>
       <Redirect to="/" />
     </Switch>
   );

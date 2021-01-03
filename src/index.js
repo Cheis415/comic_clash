@@ -5,18 +5,19 @@ import App from './App';
 import Routes from "./Routes"
 import Navbar from "./navigation/Navbar";
 import NavItem from "./navigation/NavItem";
-import DropdownMenu from "./navigation/DropdownMenu.js";
-import { ReactComponent as ReactIcon } from "./navigation/icons/display.svg"
-import { ReactComponent as ReduxIcon } from "./navigation/icons/keyboard.svg"
+
+import { ReactComponent as Sword } from "./navigation/icons/pvp.svg";
+import { ReactComponent as Comic } from "./navigation/icons/comics.svg"
 import { ReactComponent as GithubIcon } from "./navigation/icons/embed2.svg"
-import { ReactComponent as CaretIcon } from "./navigation/icons/caret-down.svg"
+
+
 
 
 ReactDOM.render(
   <BrowserRouter>
       <Navbar>
-    <NavItem route="/" icon={<ReactIcon />} />
-    <NavItem route="/clash_form" icon={<ReduxIcon />} />
+    <NavItem route="/" icon={<Comic />} />
+    <NavItem route="/clash_form" icon={<Sword />} />
     <NavItem route="/clash_page" icon={<GithubIcon />} />
     {/* <NavItem icon={<CaretIcon />}>
       <DropdownMenu />

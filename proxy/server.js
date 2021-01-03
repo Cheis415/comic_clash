@@ -11,10 +11,15 @@ const app = express();
 const TOKEN = "3935589606453569";
 
 app.get('/api', function (req, res) {
-  request(`https://superheroapi.com/api/${TOKEN}/search/Superman`, function (error, response, body) {
+
+  console.log("REQ PARAMS--->", req.query);
+
+  request(`https://superheroapi.com/api/${TOKEN}/search/${req.query.name}`, function (error, response, body) {
     if (!error && response.statusCode === 200) {
       console.log(body);
       res.send(body);
+      console.log(res);
+      console.log("HOWDY HOWDY IM A COWBOY")
     }
   });
 });
