@@ -3,7 +3,8 @@ import { useHistory, Redirect } from "react-router-dom";
 import ComicApi from "./api.js";
 import ClashPage from "./ClashPage"
 import versus from "./vs.jpg";
-import "./ClashForm.css"
+import "./ClashForm.css";
+import { useSpring, animated } from 'react-spring'
 
 function ClashForm() {
 
@@ -11,7 +12,21 @@ function ClashForm() {
 
   const [resp, setResp] = useState({});
   const [resp2, setResp2] = useState({});
-  const [loading, setLoading] = useState(false)
+  const [loading, setLoading] = useState(false);
+  // const calc = (x, y) => [-(y - window.innerHeight / 2) / 20, (x - window.innerWidth / 2) / 20, 1.1];
+  // const trans = (x, y, s) => `perspective(600px) rotateX(${x}deg) rotateY(${y}deg) scale(${s})`;
+
+  // function Card() {
+  //   const [props, set] = useSpring(() => ({ xys: [0, 0, 1], config: { mass: 5, tension: 350, friction: 40 } }))
+  //   return (
+  //     <animated.div
+  //       class="card"
+  //       onMouseMove={({ clientX: x, clientY: y }) => set({ xys: calc(x, y) })}
+  //       onMouseLeave={() => set({ xys: [0, 0, 1] })}
+  //       style={{ transform: props.xys.interpolate(trans) }}
+  //     />
+  //   )
+  // }
 
   const [formData, setFormData] = useState({
     name1: "",
@@ -85,25 +100,25 @@ function ClashForm() {
             <img src={formData.image1}></img>
           </span>
           <form className="clashForm" onSubmit={handleSubmit}>
-            <label> Enter your first Character
+            <label> 
           <input
-                placeholder="character search"
+                placeholder="Character One"
                 id="name"
                 onChange={handleChange}
                 name="name"
                 value={formData.name}
               />
             </label>
-            <label> Enter your second Character
+            <label> 
           <input
-                placeholder="character search"
+                placeholder="Character Two"
                 id="name2"
                 onChange={handleChange}
                 name="name2"
                 value={formData.name2}
               />
             </label>
-            <label> Enter the description of the Clash
+            <label> 
           <input
                 placeholder="description"
                 id="description"
@@ -125,10 +140,10 @@ function ClashForm() {
           </form>
         </div>
         :
-        <div ><h1 className="vs">VS.</h1>{console.log({resp, resp2})}
+        <div className="wrapper">
           <span className="player1">
             <h3>{resp.resp.name}</h3>
-            <img src={resp.resp.image.url}></img>
+            <img className="image" style={{marginLeft: "auto", marginRight: "auto", display: "block"}} src={resp.resp.image.url}></img>
             <h3>Power stats</h3>
             <ul>
               <li>combat: {resp.resp.powerstats.combat}</li>
@@ -139,13 +154,12 @@ function ClashForm() {
               <li>strength: {resp.resp.powerstats.strength}</li>
             </ul>
             <div className="line-block"></div>
-            <div className="clash_body">
-            <p><b>CLASH BREAKDOWN: {formData.body}</b></p>
-            </div>
+            
           </span>
+          <h1 className="vs">VS.</h1>
           <span className="player2">
             <h3>{resp2.resp2.name}</h3>
-            <img src={resp2.resp2.image.url} ></img>
+            <img className="image" style={{marginLeft: "auto", marginRight: "auto", display: "block"}} src={resp2.resp2.image.url} ></img>
             <h3>Power stats</h3>
             <ul>
               <li>combat: {resp2.resp2.powerstats.combat}</li>
@@ -156,14 +170,18 @@ function ClashForm() {
               <li>strength: {resp2.resp2.powerstats.strength}</li>
             </ul>
             <div className="line-block"></div>
+           
+          </span>
+          <div className="container">
             <div className="clash_body">
-      <p><b>CLASH DESCRIPTION: {formData.description}</b></p>
+      <p className="breakdown"><b>CLASH DESCRIPTION</b></p> <br/><p className="clash-text"> {formData.description}</p>
      
       
       </div>
-          </span>
-   
-          
+          <div className="clash_body">
+            <p className="breakdown"><b>CLASH BREAKDOWN </b></p> <br/><p className="clash-text"> {formData.body}</p>
+            </div>
+            </div>
         </div>
        
       }
